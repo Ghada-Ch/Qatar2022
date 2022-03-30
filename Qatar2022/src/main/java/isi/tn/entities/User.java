@@ -18,10 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-
-
-
 @Entity
 public class User implements Serializable {
 	/**
@@ -31,11 +27,10 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
 	@Column(name="userid")
-	private Long id;
+	private Long id_user;
 	private String email;
-	private String pwd;
-	private String fname;
-	private String lname;
+	private String password;
+	
 	
 	//@ManyToMany(mappedBy="users",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
 	//@ManyToMany(mappedBy="users",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
@@ -49,22 +44,21 @@ public class User implements Serializable {
 		super();
 	}
 	public Long getId() {
-		return id;
+		return id_user;
 	}
 	
 	
 	
 	
-	public User(Long id, String email, String pwd, String fname, String lname) {
+	public User(Long id, String email, String pwd) {
 		super();
-		this.id = id;
+		this.id_user = id;
 		this.email = email;
-		this.pwd = pwd;
-		this.fname = fname;
-		this.lname = lname;
+		this.password = pwd;
+		
 	}
 	public void setId(Long id) {
-		this.id = id;
+		this.id_user = id;
 	}
 	public String getEmail() {
 		return email;
@@ -73,26 +67,15 @@ public class User implements Serializable {
 		this.email = email;
 	}
 	public String getPwd() {
-		return pwd;
+		return password;
 	}
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		this.password = pwd;
 	}
-	public String getFname() {
-		return fname;
-	}
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-	public String getLname() {
-		return lname;
-	}
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
+	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", pwd=" + pwd + ", fname=" + fname + ", lname=" + lname
+		return "User [id=" + id_user + ", email=" + email + ", pwd=" + password
 				+ "]";
 	}
 	
